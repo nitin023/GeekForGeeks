@@ -1,5 +1,7 @@
 package Array;
 
+import sun.awt.X11.XWMHints;
+
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
@@ -52,18 +54,16 @@ import java.util.*;
 public class BooleanMatrixProblem {
 
     public static void main(String[] args) throws IOException {
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        int testCases = 0;
-
-            testCases = Integer.parseInt(br.readLine());
-
+        BufferedReader br = new BufferedReader(
+                new InputStreamReader(System.in));
+        StringTokenizer st = new StringTokenizer(br.readLine());
+        int testCases = Integer.parseInt(st.nextToken());
 
         while (testCases > 0)
         {
-            String line = br.readLine();
-            String[] strs = line.trim().split("\\s+");
-            int row = Integer.parseInt(strs[0]);
-            int col = Integer.parseInt(strs[1]);
+            st = new StringTokenizer(br.readLine());
+            int row = Integer.parseInt(st.nextToken());
+            int col = Integer.parseInt(st.nextToken());
 
             int i , j;
             int [][] booleanMatrix = new int[row][col];
@@ -72,16 +72,17 @@ public class BooleanMatrixProblem {
             Set<Integer> colToOne = new HashSet<>();
             for(i = 0 ; i < row ; i++)
             {
-                line = br.readLine();
-                strs = line.trim().split("\\s+");
-                for(j = 0 ; j < strs.length ; j++)
+                j = 0;
+                st = new StringTokenizer(br.readLine());
+                while (st.hasMoreElements())
                 {
-                    booleanMatrix[i][j] = Integer.parseInt(strs[j]);
+                    booleanMatrix[i][j] = Integer.parseInt(st.nextToken());
                     if(booleanMatrix[i][j] == 1)
                     {
                         rowsToOne.add(i);
                         colToOne.add(j);
                     }
+                    j++;
                 }
             }
 
