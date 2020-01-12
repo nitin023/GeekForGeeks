@@ -48,7 +48,7 @@ public class SortArrayZeroOneTwo {
             while (st.hasMoreElements()) {
                 arr[i++] = Integer.parseInt(st.nextToken());
             }
-            sortAllZerosOnesTwos(arr, numElem);
+            sortAllUsingCountingSort(arr, numElem);
             testCases--;
         }
     }
@@ -68,5 +68,34 @@ public class SortArrayZeroOneTwo {
             }
         }
         System.out.println(sbZero.toString()+sbOne+sbTwo);
+    }
+
+    /**
+     * sorted using counting sort
+     * @param arr
+     * @param len
+     */
+    public static void sortAllUsingCountingSort(int [] arr, int len)
+    {
+        int [] count = new int[3];
+
+        for(int i = 0  ; i < 3 ; i++)
+        {
+         count[i] = 0;
+        }
+
+        for(int i = 0 ; i<len ; i++)
+        {
+            ++count[arr[i]];
+        }
+        for(int i = 0 ; i < 3 ; i++)
+        {
+            while (count[i] > 0)
+            {
+                System.out.print(i + " ");
+                --count[i];
+            }
+        }
+        System.out.println();;
     }
 }
