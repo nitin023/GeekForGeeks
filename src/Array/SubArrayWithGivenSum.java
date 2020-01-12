@@ -1,7 +1,5 @@
 package Array;
 
-import jdk.nashorn.internal.ir.WhileNode;
-
 import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
