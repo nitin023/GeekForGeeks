@@ -6,28 +6,28 @@ import java.io.InputStreamReader;
 import java.util.*;
 
 public class EquilibriumPoint {
-    public static void main(String[] args)  throws IOException {
+        public static void main(String[] args)  throws IOException {
 
-        BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
-        StringTokenizer st = new StringTokenizer(br.readLine());
-        int testCases = Integer.parseInt(st.nextToken());
+            BufferedReader br = new BufferedReader(new InputStreamReader(System.in));
+            StringTokenizer st = new StringTokenizer(br.readLine());
+            int testCases = Integer.parseInt(st.nextToken());
 
-        while (testCases>0)
-        {
-            st = new StringTokenizer(br.readLine());
-            int numElem = Integer.parseInt(st.nextToken());
-
-            st = new StringTokenizer(br.readLine());
-            List<Integer> inputList = new ArrayList<>();
-
-            while (st.hasMoreElements())
+            while (testCases>0)
             {
-                inputList.add(Integer.parseInt(st.nextToken()));
+                st = new StringTokenizer(br.readLine());
+                int numElem = Integer.parseInt(st.nextToken());
+
+                st = new StringTokenizer(br.readLine());
+                List<Integer> inputList = new ArrayList<>();
+
+                while (st.hasMoreElements())
+                {
+                    inputList.add(Integer.parseInt(st.nextToken()));
+                }
+                getEquilibriumPoints(inputList,numElem);
+                testCases--;
             }
-            getEquilibriumPoints(inputList,numElem);
-            testCases--;
         }
-    }
 
     /**
      * Two pointer arithmetic approach
