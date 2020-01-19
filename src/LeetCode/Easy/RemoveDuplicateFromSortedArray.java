@@ -43,10 +43,14 @@ public class RemoveDuplicateFromSortedArray {
 
     public static void main(String[] args) {
         int [] nums = {1 , 1 , 5};
-        System.out.println(removeDuplicates(nums));
+        System.out.println(removeDuplicatesLeetCode(nums));
     }
 
-
+    /**
+     * My first Approach
+     * @param nums
+     * @return
+     */
     public static int removeDuplicates(int[] nums) {
         int i , j , k , dupCnt;
         int numUnique = 0;
@@ -82,5 +86,24 @@ public class RemoveDuplicateFromSortedArray {
             i++;
         }
         return _unique.size();
+    }
+
+    /**
+     * Leetcode approach with constant space
+     */
+    public static int removeDuplicatesLeetCode(int[] nums)
+    {
+        if(nums.length ==0) return 0;
+
+        int i = 0;
+        for(int j = 1 ; j<nums.length ; j++)
+        {
+            if(nums[i]!=nums[j])
+            {
+                nums[i] = nums[j];
+                i++;
+            }
+        }
+        return i+1;
     }
 }
