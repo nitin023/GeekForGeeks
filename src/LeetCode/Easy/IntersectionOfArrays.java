@@ -1,9 +1,6 @@
 package LeetCode.Easy;
 
-import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.List;
-import java.util.Map;
+import java.util.*;
 
 /**
  * Intersection of Two Arrays II
@@ -33,7 +30,7 @@ public class IntersectionOfArrays {
     public static void main(String[] args) {
         int []nums1 = {1,2,2,1};
         int []nums2 = {1,2,1};
-        intersectUsingHashMap(nums1,nums2);
+        intersectionUsingSorting(nums1,nums2);
     }
 
     public static void intersectUsingHashMap(int[] nums1, int[] nums2) {
@@ -79,5 +76,47 @@ public class IntersectionOfArrays {
             map1.put(i,freq);
         }
         return map1;
+    }
+
+    /**
+     * To find intersection of 2 sorted arrays, follow the below approach :
+     *
+     * 1) Use two index variables i and j, initial values i = 0, j = 0
+     * 2) If arr1[i] is smaller than arr2[j] then increment i.
+     * 3) If arr1[i] is greater than arr2[j] then increment j.
+     * 4) If both are same then print any of them and increment both i and j.
+     *
+     * Complexity O(m+n)
+     * @param nums1
+     * @param nums2
+     */
+    private static void intersectionUsingSorting(int [] nums1 , int [] nums2)
+    {
+        List<Integer> commonElem = new ArrayList<>();
+        Arrays.sort(nums1);
+        Arrays.sort(nums2);
+
+        int i  = 0, j = 0 ;
+        while (i<nums1.length && j <nums2.length)
+        {
+            if(nums1[i] < nums2[j])
+            {
+                i++;
+            }
+            else if(nums1[i] > nums2[j])
+            {
+                j++;
+            }
+            else
+            {
+                commonElem.add(nums1[i]);
+                i++;j++;
+            }
+        }
+
+        for (int item : commonElem)
+        {
+            System.out.print(item + " ");
+        }
     }
 }
