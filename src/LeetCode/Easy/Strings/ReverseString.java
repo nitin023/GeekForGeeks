@@ -18,7 +18,7 @@ package LeetCode.Easy.Strings;
  */
 public class ReverseString {
 
-    public static void main(String[] args) {
+    public static void main(FirstUniqueCharInString[] args) {
         reverseString(new char[]{'h','e','l','l','o'});
     }
 

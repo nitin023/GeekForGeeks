@@ -1,7 +1,5 @@
 package LeetCode.Easy.Strings;
 
-import com.sun.org.apache.regexp.internal.RE;
-
 /**
  * Given a 32-bit signed integer, reverse digits of an integer.
  * <p>
@@ -22,7 +20,7 @@ import com.sun.org.apache.regexp.internal.RE;
  */
 public class ReverseInteger {
 
-    public static void main(String[] args) {
+    public static void main(FirstUniqueCharInString[] args) {
         System.out.println(reverse(0));
     }
 
