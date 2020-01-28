@@ -52,7 +52,7 @@ public class Atoi {
         System.out.println(myAtoi(" 2147483648"));
     }
 
-    /**
+    /** = 0
      * Very interseting test cases
      * It could be even overlflow needed to handle carefully
      * can be even leading zeroes needed to be handled
