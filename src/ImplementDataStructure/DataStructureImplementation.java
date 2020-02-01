@@ -2,12 +2,13 @@ package ImplementDataStructure;
 
 public class DataStructureImplementation {
 
-    public static void main(String[] args) {
-        MyHashMap<String,Integer> customMap = new MyHashMap<>();
-        customMap.put("qw",1);
-        customMap.put("q" , 2);
-        customMap.put("w" ,3);
-        customMap.put("n",7);
-        System.out.println(customMap.get("q"));
+    public static void main(String[] args) throws Exception {
+        MyArrayList<String> initial = new MyArrayList<>();
+        initial.add("787");
+        initial.add("hjhk");
+        initial.add("h90k");
+
+        initial.remove(2);
+        System.out.println();
     }
 }
