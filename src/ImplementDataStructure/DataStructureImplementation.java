@@ -4,13 +4,13 @@ public class DataStructureImplementation {
 
     public static void main(String[] args)
     {
-        LeastRecentlyUsedCache leastRecentlyUsedCache = new LeastRecentlyUsedCache(5);
-        leastRecentlyUsedCache.put(1,12);
-        leastRecentlyUsedCache.put(2,53);
-        leastRecentlyUsedCache.put(4,32);
-        leastRecentlyUsedCache.put(5,13);
-        leastRecentlyUsedCache.put(6,83);
-        leastRecentlyUsedCache.put(7,54);
-        System.out.println(leastRecentlyUsedCache.get(6));
+        Trie trie = new Trie();
+        trie.insert("abc");
+        trie.insert("abgl");
+        trie.insert("cdf");
+        trie.insert("abcd");
+        trie.insert("lmn");
+
+        System.out.println(trie.search("abk"));
     }
 }
