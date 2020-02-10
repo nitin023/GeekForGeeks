@@ -1,8 +1,6 @@
 package ImplementDataStructure;
 
 
-import java.util.Objects;
-
 public class MyHashMap<K,V> {
 
     private Entry<K, V>[] buckets;
@@ -90,21 +88,6 @@ class Entry<K,V>{
 
     public V getValue() {
         return value;
-    }
-
-    @Override
-    public boolean equals(Object o) {
-        if (this == o) return true;
-        if (o == null || getClass() != o.getClass()) return false;
-        Entry<?, ?> entry = (Entry<?, ?>) o;
-        return Objects.equals(key, entry.key) &&
-                Objects.equals(value, entry.value) &&
-                Objects.equals(next, entry.next);
-    }
-
-    @Override
-    public int hashCode() {
-        return Objects.hash(key, value, next);
     }
 
     public Entry<K, V> getNext() {
