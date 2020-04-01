@@ -23,7 +23,7 @@ public class SearchInBST {
             return null;
         }
 
-        return search( root ,  val);
+        return searchInBST( root ,  val);
     }
 
     private static TreeNode searchInBST(TreeNode root , int val)
