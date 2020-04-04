@@ -39,6 +39,4 @@ public class MergeTwoSortedLinkedList {
             return l2;
         }
     }
-
-
 }
