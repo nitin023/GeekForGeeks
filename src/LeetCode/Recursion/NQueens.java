@@ -1,17 +1,23 @@
 package LeetCode.Recursion;
 
+import java.util.HashSet;
+import java.util.Set;
+import java.util.concurrent.atomic.AtomicInteger;
+
 public class NQueens {
 
-    public static void solveNQueen(int n) {
+    public static int solveNQueen(int n) {
         Position[] positions = new Position[n];
-        getQueenSolution(0, n, positions);
-
+        AtomicInteger count = new AtomicInteger(0);
+        getQueenSolution(0, n, positions,count);
+        return count.get();
     }
 
-    private static boolean getQueenSolution(int row, int n, Position[] positions) {
+    private static void getQueenSolution(int row, int n, Position[] positions,AtomicInteger count) {
 
         if (n == row) {
-            return true;
+            count.getAndIncrement();
+            return ;
         }
 
         for (int col = 0; col < n; col++) {
@@ -26,16 +32,13 @@ public class NQueens {
 
             if (foundSafe) {
                 positions[row] = new Position(row, col);
-                if (getQueenSolution(row + 1, n, positions)) {
-                    return true;
-                }
+                getQueenSolution(row + 1, n, positions,count);
             }
         }
-        return false;
     }
 
     public static void main(String[] args) {
-        solveNQueen(4);
+        System.out.println(solveNQueen(5));
     }
 }
 
