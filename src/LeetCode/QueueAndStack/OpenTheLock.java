@@ -28,7 +28,7 @@ public class OpenTheLock {
     public static void main(String[] args) {
 
         String[] deadends = new String[]{"0201", "0101", "0102", "1212", "2002"};
-        System.out.println(openLock(deadends, "0202"));
+        //System.out.println(openLock(deadends, "0202"));
     }
 
     /**
@@ -38,50 +38,50 @@ public class OpenTheLock {
      * @param target
      * @return
      */
-    public static int openLock(String[] deadends, String target) {
-
-        int level = 0;
-        Set<String> visitedNodes = new HashSet<>();
-        Set<String> deadEndSets = new HashSet<>(Arrays.asList(deadends));
-
-        Queue<String> queue = new LinkedList<>();
-        queue.add("0000");
-
-        while (!queue.isEmpty()) {
-            int size = queue.size();
-
-            for (int i = 0; i < size; i++) {
-                String node = queue.poll();
-
-                if (!visitedNodes.contains(node) && !deadEndSets.contains(node)) {
-                    if (node.equals(target)) {
-                        return level;
-                    }
-                    visitedNodes.add(node);
-                    char[] nodeArr = node.toCharArray();
-                    for (int j = 0; j < nodeArr.length; j++) {
-                        char currentItem = nodeArr[j];
-                        if (nodeArr[j] < '9') {
-                            nodeArr[j]++;
-                        } else {
-                            nodeArr[j] = '0';
-                        }
-                        queue.add(new String(nodeArr));
-                        nodeArr[j] = currentItem;
-
-                        if (nodeArr[j] > '0') {
-                            nodeArr[j]--;
-                        } else {
-                            nodeArr[j] = '9';
-                        }
-                        queue.add(new String(nodeArr));
-                        nodeArr[j] = currentItem;
-                    }
-                }
-            }
-            level++;
-        }
-        return -1;
-    }
+//    public static int openLock(String[] deadends, String target) {
+//
+//        int level = 0;
+//        Set<String> visitedNodes = new HashSet<>();
+//        Set<String> deadEndSets = new HashSet<>(Arrays.asList(deadends));
+//
+//        Queue<String> queue = new LinkedList<>();
+//        queue.add("0000");
+//
+//        while (!queue.isEmpty()) {
+//            int size = queue.size();
+//
+//            for (int i = 0; i < size; i++) {
+//                String node = queue.poll();
+//
+//                if (!visitedNodes.contains(node) && !deadEndSets.contains(node)) {
+//                    if (node.equals(target)) {
+//                        return level;
+//                    }
+//                    visitedNodes.add(node);
+//                    char[] nodeArr = node.toCharArray();
+//                    for (int j = 0; j < nodeArr.length; j++) {
+//                        char currentItem = nodeArr[j];
+//                        if (nodeArr[j] < '9') {
+//                            nodeArr[j]++;
+//                        } else {
+//                            nodeArr[j] = '0';
+//                        }
+//                        queue.add(new String(nodeArr));
+//                        nodeArr[j] = currentItem;
+//
+//                        if (nodeArr[j] > '0') {
+//                            nodeArr[j]--;
+//                        } else {
+//                            nodeArr[j] = '9';
+//                        }
+//                        queue.add(new String(nodeArr));
+//                        nodeArr[j] = currentItem;
+//                    }
+//                }
+//            }
+//            level++;
+//        }
+//        return -1;
+//    }
 }
 
