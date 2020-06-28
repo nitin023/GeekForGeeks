@@ -1,4 +1,4 @@
-package com.twelve.weeks.course.week1;
+package com.twelve.weeks.course.week1.Medium;
 
 /**
  * 707. Design Linked List
