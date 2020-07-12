@@ -3,7 +3,7 @@ package com.twelve.weeks.course.week1.Easy;
 public class MyHashMap {
 
     LinkedList[] buckets;
-    int MAX_SIZE = 1000;
+    int MAX_SIZE = 10000;
 
     /**
      * Initialize your data structure here.
