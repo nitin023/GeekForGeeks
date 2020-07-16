@@ -2,12 +2,9 @@ package com.twelve.weeks.course.week1.Medium;
 
 import LeetCode.Easy.Tree.TreeNode;
 
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Stack;
+import java.util.*;
 
 /**
- *
  * 449. Serialize and Deserialize BST
  * <p>
  * Serialization is the process of converting a data structure or object into a sequence of bits
@@ -54,7 +51,6 @@ public class SerializeAndDeserializeBST {
         StringBuilder builder = new StringBuilder();
         for (int i = 0; i < preOrderTraversal.size(); i++) {
             int value = preOrderTraversal.get(i);
-            System.out.print(value + " ");
             builder.append(Integer.toBinaryString(value));
             if (i < preOrderTraversal.size() - 1) {
                 builder.append("-");
@@ -88,25 +84,18 @@ public class SerializeAndDeserializeBST {
         if (preorder.length == 0) {
             return null;
         }
-
-        TreeNode rootNode = new TreeNode(Integer.parseInt(preorder[0], 2));
-        int value;
-        for (int i = 1; i < preorder.length; i++) {
-            value = Integer.parseInt(preorder[i], 2);
-            rootNode = insertIntoBST(rootNode, value);
-        }
-        return rootNode;
+        Queue<String> preOrderQueue = new LinkedList<>(Arrays.asList(preorder));
+        return insertIntoBST(preOrderQueue, Integer.MIN_VALUE, Integer.MAX_VALUE);
     }
 
-    private static TreeNode insertIntoBST(TreeNode node, int val) {
-        if (node == null) {
-            return new TreeNode(val);
-        }
-        if (val < node.val) {
-            node.left = insertIntoBST(node.left, val);
-        } else {
-            node.right = insertIntoBST(node.right, val);
-        }
+    private static TreeNode insertIntoBST(Queue<String> preOrderQueue, int lower, int upper) {
+        if (preOrderQueue.isEmpty()) return null;
+        int value = Integer.parseInt(preOrderQueue.peek(), 2);
+        if (value < lower || value > upper) return null;
+        preOrderQueue.poll();
+        TreeNode node = new TreeNode(value);
+        node.left = insertIntoBST(preOrderQueue, lower, value);
+        node.right = insertIntoBST(preOrderQueue, value, upper);
         return node;
     }
 }
