@@ -1,17 +1,16 @@
 package com.twelve.weeks.course.week1.Easy;
 
 
+import com.twelve.weeks.course.week1.Hard.MedianFinder;
 public class Executor {
 
     public static void main(String[] args) {
-        MyHashSet hashSet = new MyHashSet();
-        hashSet.add(1);
-        hashSet.add(2);
-        hashSet.contains(1);
-        hashSet.contains(3);
-        hashSet.add(2);
-        hashSet.contains(2);
-        hashSet.remove(2);
-        hashSet.contains(2);
+        MedianFinder medianFinder = new MedianFinder();
+        medianFinder.addNum(-1);
+        System.out.println(medianFinder.findMedian());
+        medianFinder.addNum(-2);
+        System.out.println(medianFinder.findMedian());
+        medianFinder.addNum(-3);
+        System.out.println(medianFinder.findMedian());
     }
 }
