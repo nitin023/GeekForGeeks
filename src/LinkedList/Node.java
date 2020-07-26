@@ -2,8 +2,8 @@ package LinkedList;
 
 public class Node {
 
-        int data ;
-        LinkedList.Node next;
+        public int data ;
+        public LinkedList.Node next;
         Node(int d)
         {
             data = d;
