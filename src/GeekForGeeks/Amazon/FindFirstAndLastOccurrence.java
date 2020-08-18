@@ -32,7 +32,6 @@ public class FindFirstAndLastOccurrence {
             System.out.println("-1");
             return;
         }
-        ;
 
         String[] intputStringArr = inputStringList.split(" ");
         int[] inputList = new int[numElem];
