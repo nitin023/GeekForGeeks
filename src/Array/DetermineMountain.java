@@ -1,9 +1,13 @@
 package Array;
 
+import java.util.Optional;
+
 public class DetermineMountain {
 
     public static void main(String[] args) {
-        System.out.println(validMountainArray(new int[]{1,2,3,5,7,9,10,12,14,15,16,18,14,13}));
+        //System.out.println(validMountainArray(new int[]{1,2,3,5,7,9,10,12,14,15,16,18,14,13}));
+        String nullName = null;
+        String name = Optional.ofNullable(nullName).orElse("john");
     }
 
     public static boolean validMountainArray(int[] A) {
